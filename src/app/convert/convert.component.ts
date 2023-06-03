@@ -24,8 +24,8 @@ export class ConvertComponent {
     let converted = '';
     for (const num of numbers) {
       let code = parseInt(num, 10);
-      if (code >= 0 && code <= 26) {
-        code = code + 65; // Convert to ASCII code
+      if (code >= 0) {
+        code = (code % 26) + 65; // Convert to ASCII code
         const letter = String.fromCharCode(code);
         converted += letter;
       }
