@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ConvertComponent } from './convert.component';
+import { ConverterComponent } from './converter.component';
 
-describe('ConvertComponent', () => {
-  let component: ConvertComponent;
-  let fixture: ComponentFixture<ConvertComponent>;
+describe('ConverterComponent', () => {
+  let component: ConverterComponent;
+  let fixture: ComponentFixture<ConverterComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ConvertComponent]
+      declarations: [ConverterComponent]
     });
-    fixture = TestBed.createComponent(ConvertComponent);
+    fixture = TestBed.createComponent(ConverterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
