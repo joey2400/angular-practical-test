@@ -3,12 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ConvertComponent } from './convert/convert.component';
+import { ConverterComponent } from './converter/converter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConvertComponent
+    ConverterComponent
   ],
   imports: [
     BrowserModule,
