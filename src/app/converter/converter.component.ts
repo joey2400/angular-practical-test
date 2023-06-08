@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
+import { ConverterService } from '../converter-service/converter.service';
 
 @Component({
   selector: 'app-converter',
   templateUrl: './converter.component.html',
-  styleUrls: ['./converter.component.css']
+  styleUrls: ['./converter.component.css'],
+  providers: [ConverterService]
 })
 export class ConverterComponent {
+  constructor(private converterService: ConverterService) { }
   typedValue: string = '';
   convertedValue: string = '';
 
@@ -20,16 +23,6 @@ export class ConverterComponent {
   }
 
   convertValue() {
-    const numbers = this.typedValue.split('#');
-    let converted = '';
-    for (const num of numbers) {
-      let code = parseInt(num, 10);
-      if (code >= 0) {
-        code = (code % 26) + 65; // Convert to ASCII code
-        const letter = String.fromCharCode(code);
-        converted += letter;
-      }
-    }
-    this.convertedValue = converted;
+    this.convertedValue = this.converterService.convertValue(this.typedValue);
   }
 }

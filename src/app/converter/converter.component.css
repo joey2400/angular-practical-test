@@ -32,12 +32,12 @@
 
 @media screen and (max-width: 480px) {
     .main-container {
-        width: 100%;
+        width: calc(100% - 30px);
         height: 100vh;
     }
 
     .grid-container {
-        height: 90%;
+        height: calc(100% - 50px);
     }
 
 }
