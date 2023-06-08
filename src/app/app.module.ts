@@ -4,8 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ConverterComponent } from './converter/converter.component';
-import { StoreModule } from '@ngrx/store';
-import { converterReducer } from './converter/state/converter.reducer';
 
 @NgModule({
   declarations: [
@@ -14,8 +12,7 @@ import { converterReducer } from './converter/state/converter.reducer';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    StoreModule.forRoot({ converter: converterReducer })
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
