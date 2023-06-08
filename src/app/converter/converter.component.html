@@ -1,20 +1,20 @@
 <div class="main-container">
 
-    <input class="screen" type="text" [value]="typedValue$ | async">
-    <input class="screen" type="text" [value]="convertedValue$ | async">
+    <input class="screen" type="text" [value]="typedValue">
+    <input class="screen" type="text" [value]="convertedValue">
 
     <div class="grid-container">
-        <div class="btn" (click)="typeNumber('1')">1</div>
-        <div class="btn" (click)="typeNumber('2')">2</div>
-        <div class="btn" (click)="typeNumber('3')">3</div>
-        <div class="btn" (click)="typeNumber('4')">4</div>
-        <div class="btn" (click)="typeNumber('5')">5</div>
-        <div class="btn" (click)="typeNumber('6')">6</div>
-        <div class="btn" (click)="typeNumber('7')">7</div>
-        <div class="btn" (click)="typeNumber('8')">8</div>
-        <div class="btn" (click)="typeNumber('9')">9</div>
-        <div class="btn" (click)="addSeparator()">#</div>
-        <div class="btn" (click)="typeNumber('0')">0</div>
-        <div class="btn" (click)="removeLastValue()">&lt;-</div>
+        <div class="btn" (click)="onClick('1')">1</div>
+        <div class="btn" (click)="onClick('2')">2</div>
+        <div class="btn" (click)="onClick('3')">3</div>
+        <div class="btn" (click)="onClick('4')">4</div>
+        <div class="btn" (click)="onClick('5')">5</div>
+        <div class="btn" (click)="onClick('6')">6</div>
+        <div class="btn" (click)="onClick('7')">7</div>
+        <div class="btn" (click)="onClick('8')">8</div>
+        <div class="btn" (click)="onClick('9')">9</div>
+        <div class="btn" (click)="onClick('#')">#</div>
+        <div class="btn" (click)="onClick('0')">0</div>
+        <div class="btn" (click)="removeValue()">&lt;-</div>
     </div>
 </div>
