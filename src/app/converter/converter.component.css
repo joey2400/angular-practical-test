@@ -33,11 +33,10 @@
 @media screen and (max-width: 480px) {
     .main-container {
         width: calc(100% - 30px);
-        height: 100vh;
+        height: calc(100vh - 30px);
     }
 
     .grid-container {
         height: calc(100% - 50px);
     }
-
 }
