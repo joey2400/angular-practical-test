@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ConverterService {
   constructor() { }
-  convertValue(input: string) {
+  convertNumbersToLetters(input: string): string {
     const numbers = input.split('#');
     let converted = '';
     for (const num of numbers) {

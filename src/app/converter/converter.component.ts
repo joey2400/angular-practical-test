@@ -14,20 +14,26 @@ export class ConverterComponent {
   typedValue$ = this.store.select((state) => state.converter.typedValue);
   convertedValue$ = this.store.select((state) => state.converter.convertedValue);
 
-  constructor(private store: Store<{ converter: ConverterState }>) { }
+  constructor(private store: Store<{ converter: ConverterState }>, private converterService: ConverterService) { }
 
   typeNumber(number: string) {
     this.store.dispatch(converterActions.typeNumber({ number }));
-    this.store.dispatch(converterActions.updateConvertedValue());
+    this.store.dispatch(
+      converterActions.updateConvertedValue({ converterService: this.converterService })
+    );
   }
 
   addSeparator() {
     this.store.dispatch(converterActions.addSeparator());
-    this.store.dispatch(converterActions.updateConvertedValue());
+    this.store.dispatch(
+      converterActions.updateConvertedValue({ converterService: this.converterService })
+    );;
   }
 
   removeLastValue() {
     this.store.dispatch(converterActions.removeLastValue());
-    this.store.dispatch(converterActions.updateConvertedValue());
+    this.store.dispatch(
+      converterActions.updateConvertedValue({ converterService: this.converterService })
+    );
   }
 }
