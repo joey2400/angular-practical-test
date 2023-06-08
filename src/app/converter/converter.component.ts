@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { ConverterService } from '../converter-service/converter.service';
+import { Store } from '@ngrx/store';
+import * as converterActions from '../converter/state/converter.actions';
+import { ConverterState } from './state/converter.state';
 
 @Component({
   selector: 'app-converter',
@@ -8,21 +11,23 @@ import { ConverterService } from '../converter-service/converter.service';
   providers: [ConverterService]
 })
 export class ConverterComponent {
-  constructor(private converterService: ConverterService) { }
-  typedValue: string = '';
-  convertedValue: string = '';
+  typedValue$ = this.store.select((state) => state.converter.typedValue);
+  convertedValue$ = this.store.select((state) => state.converter.convertedValue);
 
-  onClick(value: string) {
-    this.typedValue += value;
-    console.log('You typed:', value);
-    this.convertValue();
-  }
-  removeValue() {
-    this.typedValue = this.typedValue.slice(0, -1);
-    this.convertValue();
+  constructor(private store: Store<{ converter: ConverterState }>) { }
+
+  typeNumber(number: string) {
+    this.store.dispatch(converterActions.typeNumber({ number }));
+    this.store.dispatch(converterActions.updateConvertedValue());
   }
 
-  convertValue() {
-    this.convertedValue = this.converterService.convertValue(this.typedValue);
+  addSeparator() {
+    this.store.dispatch(converterActions.addSeparator());
+    this.store.dispatch(converterActions.updateConvertedValue());
+  }
+
+  removeLastValue() {
+    this.store.dispatch(converterActions.removeLastValue());
+    this.store.dispatch(converterActions.updateConvertedValue());
   }
 }
