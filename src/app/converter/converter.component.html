@@ -1,7 +1,7 @@
 <div class="main-container">
 
-    <input class="screen" type="text" [value]="typedValue$ | async">
-    <input class="screen" type="text" [value]="convertedValue$ | async">
+    <input class="screen" type="text" placeholder="Integer" [value]="typedValue$ | async">
+    <input class="screen" type="text" placeholder="Text" [value]="convertedValue$ | async">
 
     <div class="grid-container">
         <div class="btn" (click)="typeNumber('1')">1</div>
