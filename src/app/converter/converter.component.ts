@@ -3,6 +3,7 @@ import { ConverterService } from '../converter-service/converter.service';
 import { Store } from '@ngrx/store';
 import * as converterActions from '../converter/state/converter.actions';
 import { ConverterState } from './state/converter.state';
+import { selectTypedValue, selectConvertedValue } from './state/converter.selectors';
 
 @Component({
   selector: 'app-converter',
@@ -11,8 +12,8 @@ import { ConverterState } from './state/converter.state';
   providers: [ConverterService]
 })
 export class ConverterComponent {
-  typedValue$ = this.store.select((state) => state.converter.typedValue);
-  convertedValue$ = this.store.select((state) => state.converter.convertedValue);
+  typedValue$ = this.store.select(selectTypedValue);
+  convertedValue$ = this.store.select(selectConvertedValue);
 
   constructor(private store: Store<{ converter: ConverterState }>, private converterService: ConverterService) { }
 
